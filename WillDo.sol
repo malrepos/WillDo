@@ -15,17 +15,18 @@ contract WillDo {
     }
 
     function getTaskIndex(string memory _taskName)external view returns(uint){
-        return indexByString[_taskName];
+        return indexByString[_taskName] -1;
     }
 
+
     function removeTask(uint _index)external{
-        for(uint i = _index; i < taskList.length; i++){
-            taskList[i] = taskList[i +1];
+        for(uint i = _index; i < taskList.length -1; i++){
+            taskList[i] = taskList[i + 1];
             taskList.pop();
         }
     }
 
-    function getTaslList()external view returns(string[] memory){
+    function getTasklList()external view returns(string[] memory){
         return taskList;
     }
 }
